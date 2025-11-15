@@ -19,7 +19,7 @@ export const useUpdateKyc = () => {
       if (adharaFile) formData.append("adhara_img", adharaFile);
       if (panFile) formData.append("pan_img", panFile);
 
-      const res = await fetch("http://localhost:8030/kyc/update", {
+      const res = await fetch("ttps://backend-mlm-beta.vercel.app/kyc/update", {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${getaccesstoken}`,

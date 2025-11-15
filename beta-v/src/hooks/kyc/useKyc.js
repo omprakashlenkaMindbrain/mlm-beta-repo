@@ -18,7 +18,7 @@ export const useKycUpload = () => {
       formData.append("adhara_img", adharFile);
       formData.append("pan_img", panFile);    
 
-      const res = await fetch("http://localhost:8030/kyc/upload", {
+      const res = await fetch("ttps://backend-mlm-beta.vercel.app/kyc/upload", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${getaccesstoken}`, 
@@ -32,6 +32,7 @@ export const useKycUpload = () => {
       }
 
       const responseData = await res.json();
+      console.log(responseData);
       setData(responseData);
       return responseData;
     } catch (err) {

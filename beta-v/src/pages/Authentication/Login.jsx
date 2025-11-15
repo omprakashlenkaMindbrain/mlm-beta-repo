@@ -91,7 +91,7 @@ export default function LoginPage() {
             <h1 className="text-3xl font-bold mb-2" style={{ color: PRIMARY_COLOR }}>
               Welcome Back
             </h1>
-            <p className="text-gray-600 text-sm">Sign in to continue to BM2 Mall</p>
+            <p className="text-gray-600 text-sm">Sign in to continue to BMPL Mall</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">

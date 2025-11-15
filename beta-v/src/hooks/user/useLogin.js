@@ -1,7 +1,7 @@
 export const useLogin = () => {
   const login = async (credentials) => {
     try {
-      const res = await fetch("http://localhost:8030/api/sessions", {
+      const res = await fetch("ttps://backend-mlm-beta.vercel.app/api/sessions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -10,8 +10,6 @@ export const useLogin = () => {
       });
 
       const data = await res.json().catch(() => ({}));
-
-
       if (!res.ok) {
         throw new Error(data.message || "Invalid credentials");
       }

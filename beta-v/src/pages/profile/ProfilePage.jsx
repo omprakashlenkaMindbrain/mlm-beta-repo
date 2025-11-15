@@ -24,7 +24,8 @@ const ACCENT_YELLOW_BUTTON = "#FDBB2D"
 const ICON_COLOR_CONTACT = "#1D9E74"
 
 export default function ProfilePage() {
-    const { getaccesstoken } = useAuth()
+    const { getaccesstoken } = useAuth();
+    
     const { getLoggedinuser } = getAuthUse()
     const { editUser, loading: saving, error: saveError, successMsg } = useEditUser()
 
@@ -59,7 +60,7 @@ export default function ProfilePage() {
             setAdharaFile(null)
             setPanFile(null)
         } else {
-            Swal.fire("Error", uploadError || "Failed to update KYC", "error")
+            Swal.fire("You Can't Uplode", uploadError || "Failed to update KYC", "error")
         }
     }
 
@@ -430,25 +431,32 @@ export default function ProfilePage() {
                             </div>
 
                             {/* 🔹 Update Button */}
-                            <button
-                                onClick={handleKycUpdate}
-                                disabled={uploading}
-                                className={`w-full sm:w-auto px-6 py-2 rounded-lg font-semibold text-white transition flex items-center justify-center gap-2 ${uploading
-                                    ? "bg-gray-400 cursor-not-allowed"
-                                    : "bg-green-600 hover:bg-green-700"
-                                    }`}
-                            >
-                                {uploading ? (
-                                    <>
-                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                        Updating...
-                                    </>
-                                ) : (
-                                    <>
-                                        <Save className="w-4 h-4" /> Update Documents
-                                    </>
-                                )}
-                            </button>
+                            {/* 🔹 Update Button — hide when status is approved */}
+                            {profile.kyc?.status !== "approved" && (
+                                <>
+                                    <button
+                                        onClick={handleKycUpdate}
+                                        disabled={uploading}
+                                        className={`w-full sm:w-auto px-6 py-2 rounded-lg font-semibold text-white transition flex items-center justify-center gap-2 ${uploading ? "bg-gray-400 cursor-not-allowed" : "bg-green-600 hover:bg-green-700"
+                                            }`}
+                                    >
+                                        {uploading ? (
+                                            <>
+                                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                Updating...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Save className="w-4 h-4" /> Update Documents
+                                            </>
+                                        )}
+                                    </button>
+
+                                    {uploadError && <p className="text-red-600 mt-3 text-sm">{uploadError}</p>}
+                                    {success && <p className="text-green-600 mt-3 text-sm">Documents updated successfully!</p>}
+                                </>
+                            )}
+
 
                             {uploadError && <p className="text-red-600 mt-3 text-sm">{uploadError}</p>}
                             {success && <p className="text-green-600 mt-3 text-sm">Documents updated successfully!</p>}

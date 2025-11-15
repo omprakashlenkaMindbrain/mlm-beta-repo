@@ -63,8 +63,8 @@ export default function SignupPage() {
     "w-full px-3 py-2 text-sm outline-none bg-transparent focus:ring-0";
 
   return (
-    <div 
-      className="relative min-h-screen flex items-center justify-center px-4" 
+    <div
+      className="relative min-h-screen flex items-center justify-center px-4"
       style={{ backgroundColor: BG_LIGHT }}
     >
       <motion.div
@@ -74,8 +74,8 @@ export default function SignupPage() {
         className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-gray-200 p-8"
       >
         <div className="flex flex-col items-center mb-6">
-          <div 
-            className="w-14 h-14 rounded-full overflow-hidden shadow-md border" 
+          <div
+            className="w-14 h-14 rounded-full overflow-hidden shadow-md border"
             style={{ borderColor: PRIMARY_COLOR }}
           >
             <img
@@ -84,14 +84,14 @@ export default function SignupPage() {
               className="w-full h-full object-cover"
             />
           </div>
-          <h1 
+          <h1
             className="text-2xl font-bold mt-3"
             style={{ color: PRIMARY_COLOR }}
           >
             Create Your Account
           </h1>
           <p className="text-gray-600 text-sm mt-1">
-            Join BM2 Mall to manage your account securely
+            Join BMPL Mall to manage your account securely
           </p>
         </div>
 
@@ -121,16 +121,16 @@ export default function SignupPage() {
               key={name}
               className="flex items-center gap-2 border-b border-gray-300 relative"
               style={{
-                  borderBottomColor: 'rgb(209, 213, 219)',
-                  boxShadow: `0 1px 0 0 transparent`,
+                borderBottomColor: 'rgb(209, 213, 219)',
+                boxShadow: `0 1px 0 0 transparent`,
               }}
               onFocus={(e) => {
-                  e.currentTarget.style.borderBottomColor = PRIMARY_COLOR;
-                  e.currentTarget.style.boxShadow = `0 1px 0 0 ${PRIMARY_COLOR}`;
+                e.currentTarget.style.borderBottomColor = PRIMARY_COLOR;
+                e.currentTarget.style.boxShadow = `0 1px 0 0 ${PRIMARY_COLOR}`;
               }}
               onBlur={(e) => {
-                  e.currentTarget.style.borderBottomColor = 'rgb(209, 213, 219)';
-                  e.currentTarget.style.boxShadow = `0 1px 0 0 transparent`;
+                e.currentTarget.style.borderBottomColor = 'rgb(209, 213, 219)';
+                e.currentTarget.style.boxShadow = `0 1px 0 0 transparent`;
               }}
             >
               <Icon size={18} className="text-gray-400" />
@@ -143,25 +143,25 @@ export default function SignupPage() {
                 maxLength={name === "mobno" ? 10 : undefined}
                 className={inputClass}
                 style={{
-                  textTransform:"capitalize",
+                  textTransform: name === "name" ? "capitalize" : "none", // Only capitalize name
                 }}
               />
             </div>
           ))}
 
-          <div 
+          <div
             className="flex items-center gap-2 border-b border-gray-300 relative"
             style={{
-                borderBottomColor: 'rgb(209, 213, 219)',
-                boxShadow: `0 1px 0 0 transparent`,
+              borderBottomColor: 'rgb(209, 213, 219)',
+              boxShadow: `0 1px 0 0 transparent`,
             }}
             onFocus={(e) => {
-                e.currentTarget.style.borderBottomColor = PRIMARY_COLOR;
-                e.currentTarget.style.boxShadow = `0 1px 0 0 ${PRIMARY_COLOR}`;
+              e.currentTarget.style.borderBottomColor = PRIMARY_COLOR;
+              e.currentTarget.style.boxShadow = `0 1px 0 0 ${PRIMARY_COLOR}`;
             }}
             onBlur={(e) => {
-                e.currentTarget.style.borderBottomColor = 'rgb(209, 213, 219)';
-                e.currentTarget.style.boxShadow = `0 1px 0 0 transparent`;
+              e.currentTarget.style.borderBottomColor = 'rgb(209, 213, 219)';
+              e.currentTarget.style.boxShadow = `0 1px 0 0 transparent`;
             }}
           >
             <Lock size={18} className="text-gray-400" />
@@ -178,7 +178,7 @@ export default function SignupPage() {
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-500"
               style={{
-                cursor:"pointer"
+                cursor: "pointer"
               }}
             >
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -192,7 +192,7 @@ export default function SignupPage() {
           <motion.button
             whileHover={{
               scale: 1.02,
-              backgroundColor: PRIMARY_COLOR, 
+              backgroundColor: PRIMARY_COLOR,
               color: "#fff",
               boxShadow: `0 0 10px rgba(0, 74, 173, 0.4)`,
             }}
@@ -200,7 +200,7 @@ export default function SignupPage() {
             type="submit"
             disabled={loading}
             className="w-full flex items-center justify-center text-black py-2 text-sm rounded-lg font-bold mt-4 transition-all duration-300"
-            style={{ backgroundColor: SECONDARY_COLOR, cursor:"pointer" }}
+            style={{ backgroundColor: SECONDARY_COLOR, cursor: "pointer" }}
           >
             {loading ? "Creating Account..." : "Create Account"}
             <ArrowRight size={18} className="ml-2" />

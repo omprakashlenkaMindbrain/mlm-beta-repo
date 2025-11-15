@@ -60,7 +60,7 @@ export default function KYCPage() {
       //Error Alert
       Swal.fire({
         icon: "error",
-        title: "You have alredy uploaded your file",
+        title: "You have already uploaded your file",
         // text: err.msg ",
         confirmButtonColor: ERROR_COLOR, 
       });
@@ -87,9 +87,9 @@ export default function KYCPage() {
         <div className="flex flex-col items-center mb-8 w-full">
           <div
             style={{ backgroundColor: PRIMARY_COLOR }} 
-            className="w-14 h-14 rounded-full flex items-center justify-center text-white font-extrabold text-xl mb-2 shadow-lg"
+            className="w-14 h-14 rounded-full flex items-center justify-center text-white font-semiBold text-xl mb-2 shadow-lg"
           >
-            BM2
+            BMPL
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 text-center mb-1">
             Upload Your KYC Documents

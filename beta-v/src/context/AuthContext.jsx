@@ -196,6 +196,21 @@ export const AuthProvider = ({ children }) => {
     });
 
     if (confirm.isConfirmed) {
+
+      // Call Backend API
+      try {
+        await fetch("ttps://backend-mlm-beta.vercel.app/api/sessions", {
+          method: "DELETE",
+          headers: {
+            "Authorization": `Bearer ${getaccesstoken}`,
+          },
+          credentials: "include",
+        });
+      } catch (err) {
+        console.log("Backend logout failed (continuing local logout)");
+      }
+
+      //  Clear frontend login state
       setUser(null);
       setIsLoggedIn(false);
       setGetaccesstoken(null);
@@ -213,9 +228,11 @@ export const AuthProvider = ({ children }) => {
         timer: 1800,
         showConfirmButton: false,
       });
+
       navigate("/login");
     }
   };
+
 
   return (
     <AuthContext.Provider
