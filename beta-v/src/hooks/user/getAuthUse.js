@@ -3,7 +3,7 @@ import { useCallback } from "react";
 export const getAuthUse = () => {
   const getLoggedinuser = useCallback(async (token) => {
     try {
-      const res = await fetch("ttps://backend-mlm-beta.vercel.app/api/sessions", {
+      const res = await fetch("http://localhost:8030/api/sessions", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

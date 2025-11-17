@@ -1,7 +1,7 @@
 export const useLogin = () => {
   const login = async (credentials) => {
     try {
-      const res = await fetch("ttps://backend-mlm-beta.vercel.app/api/sessions", {
+      const res = await fetch("http://localhost:8030/api/sessions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

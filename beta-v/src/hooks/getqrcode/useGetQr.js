@@ -10,7 +10,7 @@ export const useGetQr = () => {
     setError(null);
 
     try {
-      const res = await fetch("ttps://backend-mlm-beta.vercel.app/admin/qr", {
+      const res = await fetch("http://localhost:8030/admin/qr", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

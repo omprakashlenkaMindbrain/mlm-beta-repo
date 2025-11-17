@@ -11,7 +11,7 @@ export const useLogout = () => {
     setError(null);
 
     try {
-      const res = await fetch("ttps://backend-mlm-beta.vercel.app/api/sessions", {
+      const res = await fetch("http://localhost:8030/api/sessions", {
         method: "DELETE",
         credentials: "include",
       });

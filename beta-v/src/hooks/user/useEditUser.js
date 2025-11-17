@@ -13,7 +13,7 @@ export const useEditUser = () => {
     setSuccessMsg(null);
 
     try {
-      const res = await fetch("ttps://backend-mlm-beta.vercel.app/api/users/me", {
+      const res = await fetch("http://localhost:8030/api/users/me", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

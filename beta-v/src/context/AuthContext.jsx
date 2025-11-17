@@ -199,7 +199,7 @@ export const AuthProvider = ({ children }) => {
 
       // Call Backend API
       try {
-        await fetch("ttps://backend-mlm-beta.vercel.app/api/sessions", {
+        await fetch("http://localhost:8030/api/sessions", {
           method: "DELETE",
           headers: {
             "Authorization": `Bearer ${getaccesstoken}`,

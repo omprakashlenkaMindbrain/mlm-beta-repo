@@ -20,7 +20,7 @@ export const usePlanUpload = () => {
       formData.append("plan_name", plan_name);
       formData.append("payment_ss", paymentFile);
 
-      const res = await fetch("ttps://backend-mlm-beta.vercel.app/plan", {
+      const res = await fetch("http://localhost:8030/plan", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${getaccesstoken}`,

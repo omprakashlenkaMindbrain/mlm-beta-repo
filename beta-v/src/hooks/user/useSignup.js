@@ -11,7 +11,7 @@ export const useSignup = () => {
     setSuccess(false);
 
     try {
-      const res = await fetch("ttps://backend-mlm-beta.vercel.app/api/users", {
+      const res = await fetch("http://localhost:8030/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
